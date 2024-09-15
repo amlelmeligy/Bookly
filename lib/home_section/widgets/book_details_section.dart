@@ -1,5 +1,5 @@
-import 'package:bookly/widgets/best_seller_list_view_Item.dart';
-import 'package:bookly/widgets/custom_book_item.dart';
+import 'package:bookly/home_section/widgets/book_list_view_Item.dart';
+import 'package:bookly/home_section/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly/styles.dart';
 
@@ -13,7 +13,9 @@ class BookDetailsSection extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: width * 0.17),
+          padding: EdgeInsets.symmetric(
+            horizontal: width * 0.17,
+          ),
           child: CustomBookImage(),
         ),
         SizedBox(

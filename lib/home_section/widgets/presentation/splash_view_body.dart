@@ -1,4 +1,4 @@
-import 'package:bookly/views/home_view.dart';
+import 'package:bookly/home_section/views/home_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -36,7 +36,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     Future.delayed(
       Duration(seconds: 2),
       () {
-        GoRouter.of(context).push('/HomeView');
+        GoRouter.of(context).push('/OnePresentScreen');
       },
     );
   }
