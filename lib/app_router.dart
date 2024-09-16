@@ -5,7 +5,7 @@ import 'package:bookly/home_section/views/home_view.dart';
 import 'package:bookly/home_section/views/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'home_section/widgets/presentation/one_present_screen.dart';
+import 'presentation/view/one_present_screen.dart';
 
 abstract class AppRouter {
   static final GoRouter router = GoRouter(

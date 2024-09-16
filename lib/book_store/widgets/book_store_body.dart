@@ -59,6 +59,9 @@ class _BookStoreBodyState extends State<BookStoreBody> {
                 },
               ),
             ),
+            SizedBox(
+              height: 5,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -70,7 +73,9 @@ class _BookStoreBodyState extends State<BookStoreBody> {
                 ),
               ],
             ),
-
+            SizedBox(
+              height: 30,
+            ),
             // GridviewWidget()
             CustomGradeView()
           ],

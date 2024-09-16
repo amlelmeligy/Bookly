@@ -1,11 +1,7 @@
 import 'package:bookly/styles.dart';
-import 'package:bookly/home_section/widgets/book_list_view_Item.dart';
 import 'package:bookly/home_section/widgets/search_widgets/custom_search_text_field.dart';
 import 'package:bookly/home_section/widgets/search_widgets/search_result_listview.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -21,7 +17,7 @@ class SearchViewBody extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: 35,
+                  height: 40,
                 ),
                 Align(
                   alignment: Alignment.topLeft,
