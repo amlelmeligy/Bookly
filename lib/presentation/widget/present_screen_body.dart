@@ -1,12 +1,9 @@
 import 'package:bookly/presentation/widget/custom_indicator.dart';
+import 'package:bookly/presentation/widget/custom_present_button.dart';
 import 'package:bookly/presentation/widget/present_screen_body_content.dart';
-import 'package:bookly/styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:go_router/go_router.dart';
-import 'package:lottie/lottie.dart';
 
 class PresentScreenBody extends StatefulWidget {
   const PresentScreenBody({super.key});
@@ -71,45 +68,13 @@ class _PresentScreenBodyState extends State<PresentScreenBody> {
                       ),
                     ),
                     Spacer(),
-                    PresentButton(),
+                    CustomPresentButton(),
                     Spacer()
                   ],
                 ),
               ),
             )
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class PresentButton extends StatefulWidget {
-  const PresentButton({
-    super.key,
-  });
-
-  @override
-  State<PresentButton> createState() => _PresentButtonState();
-}
-
-class _PresentButtonState extends State<PresentButton> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 50,
-      child: MaterialButton(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        color: Color.fromARGB(206, 61, 68, 80),
-        onPressed: () {
-          GoRouter.of(context).push("/Navigation");
-        },
-        child: Text(
-          "Continue",
-          style: styles.textStyle16.copyWith(fontWeight: FontWeight.bold),
         ),
       ),
     );

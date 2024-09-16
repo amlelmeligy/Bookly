@@ -92,7 +92,7 @@ class _CustomGradeViewState extends State<CustomGradeView> {
           return InkWell(
             onTap: () {},
             child: Padding(
-              padding: const EdgeInsets.all(5),
+              padding: const EdgeInsets.symmetric(horizontal: 5),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),

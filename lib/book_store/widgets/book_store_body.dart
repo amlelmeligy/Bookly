@@ -1,15 +1,10 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:bookly/book_store/widgets/custom_banner_widget.dart';
 import 'package:bookly/book_store/widgets/custom_grade_widget.dart';
 import 'package:bookly/book_store/widgets/indicator.dart';
 import 'package:bookly/book_store/widgets/text_form_field.dart';
-import 'package:bookly/home_section/widgets/book_list_view_Item.dart';
-import 'package:bookly/home_section/widgets/custom_book_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:bookly/styles.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BookStoreBody extends StatefulWidget {
   const BookStoreBody({super.key});
@@ -73,10 +68,6 @@ class _BookStoreBodyState extends State<BookStoreBody> {
                 ),
               ],
             ),
-            SizedBox(
-              height: 30,
-            ),
-            // GridviewWidget()
             CustomGradeView()
           ],
         ),

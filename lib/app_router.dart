@@ -38,19 +38,18 @@ abstract class AppRouter {
   );
 }
 
-
 /////
 ///    GoRoute(
-    //   path: '/',
-    //   builder: (BuildContext context, GoRouterState state) {
-    //     return const SplashView();
-    //   },
-    //   routes: <RouteBase>[
-    //     GoRoute(
-    //       path: 'details',
-    //       builder: (BuildContext context, GoRouterState state) {
-    //         return const SplashView();
-    //       },
-    //     ),
-    //   ],
-    // ),
+//   path: '/',
+//   builder: (BuildContext context, GoRouterState state) {
+//     return const SplashView();
+//   },
+//   routes: <RouteBase>[
+//     GoRoute(
+//       path: 'details',
+//       builder: (BuildContext context, GoRouterState state) {
+//         return const SplashView();
+//       },
+//     ),
+//   ],
+// ),
