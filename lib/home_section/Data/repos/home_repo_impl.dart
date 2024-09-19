@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:bookly/errors/Failures.dart';
 import 'package:bookly/home_section/Data/api_service.dart';
 import 'package:bookly/home_section/Data/models/book_models/book_models.dart';
@@ -13,11 +14,14 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failures, List<BookModels>>> fetchNewsetBooks() async {
     try {
       var data = await apiService.get(
-          endPoint:
-              'volumes?Filtering=free-ebooks&Sorting=newest&q=subject:programming');
+          endPoint: 'volumes?Filtering=free-ebooks&Sorting=newest &q=general');
       List<BookModels> books = [];
       for (var item in data['items']) {
-        books.add(BookModels.fromJson(item));
+        try {
+          books.add(BookModels.fromJson(item));
+        } catch (e) {
+          log(item);
+        }
       }
       return right(books);
     } catch (e) {
@@ -43,6 +47,37 @@ class HomeRepoImpl implements HomeRepo {
       List<BookModels> books = [];
       for (var item in data['items']) {
         books.add(BookModels.fromJson(item));
+      }
+      return right(books);
+    } catch (e) {
+      // ignore: deprecated_member_use
+      if (e is DioError) {
+        return left(
+          ServerFailure.fromDioError(e),
+        );
+      }
+      return left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failures, List<BookModels>>> fetchSimilarBooks(
+      {required String category}) async {
+    try {
+      var data = await apiService.get(
+          endPoint:
+              'volumes?Filtering=free-ebooks&Sorting=relevance &q=general');
+      List<BookModels> books = [];
+      for (var item in data['items']) {
+        try {
+          books.add(BookModels.fromJson(item));
+        } catch (e) {
+          log(item);
+        }
       }
       return right(books);
     } catch (e) {

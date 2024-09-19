@@ -5,6 +5,7 @@ import 'package:bookly/book_store/widgets/text_form_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:bookly/styles.dart';
 
 class BookStoreBody extends StatefulWidget {
   const BookStoreBody({super.key});
