@@ -1,13 +1,10 @@
 import 'package:bookly/styles.dart';
 import 'package:bookly/home_section/widgets/Custome_App_Bar.dart';
-import 'package:bookly/home_section/widgets/book_list_view_Item.dart';
 import 'package:bookly/home_section/widgets/best_seller_listview.dart';
-import 'package:bookly/home_section/widgets/custom_book_item.dart';
 import 'package:bookly/home_section/widgets/featured_list_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});

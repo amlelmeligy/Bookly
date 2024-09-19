@@ -1,10 +1,5 @@
-import 'package:bookly/home_section/views/home_view.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:go_router/go_router.dart';
-import 'package:lottie/lottie.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});

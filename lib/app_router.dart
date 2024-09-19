@@ -3,7 +3,6 @@ import 'package:bookly/home_section/views/SplashView.dart';
 import 'package:bookly/home_section/views/book_details_view.dart';
 import 'package:bookly/home_section/views/home_view.dart';
 import 'package:bookly/home_section/views/search_view.dart';
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'presentation/view/one_present_screen.dart';
 
