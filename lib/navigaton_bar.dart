@@ -25,7 +25,7 @@ class _NavigationState extends State<Navigation> {
       bottomNavigationBar: Container(
         color: Color(0xff100b20),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: GNav(
               tabBackgroundColor: Color.fromARGB(144, 61, 68, 80),
               padding: EdgeInsets.all(12),
