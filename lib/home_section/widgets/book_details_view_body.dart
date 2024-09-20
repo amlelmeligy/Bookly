@@ -1,3 +1,4 @@
+import 'package:bookly/home_section/Data/models/book_models/book_models.dart';
 import 'package:bookly/styles.dart';
 import 'package:bookly/home_section/widgets/book_action.dart';
 import 'package:bookly/home_section/widgets/book_details_section.dart';
@@ -8,8 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
+  const BookDetailsViewBody({super.key, required this.bookModels});
 
+  final BookModels bookModels;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,13 +24,15 @@ class BookDetailsViewBody extends StatelessWidget {
               height: 20,
             ),
             CustomBookDetailsAppBar(),
-            BookDetailsSection(),
+            BookDetailsSection(
+              book: bookModels,
+            ),
             SizedBox(
-              height: 40,
+              height: 20,
             ),
             BookAction(),
             SizedBox(
-              height: 40,
+              height: 20,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 10),
