@@ -2,6 +2,7 @@ import 'package:bookly/home_section/Data/models/book_models/book_models.dart';
 import 'package:bookly/home_section/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly/styles.dart';
+import 'package:go_router/go_router.dart';
 
 class GridViewItem extends StatelessWidget {
   const GridViewItem({
@@ -65,7 +66,10 @@ class GridViewItem extends StatelessWidget {
                     Row(
                       children: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            GoRouter.of(context)
+                                .push("/BookDetailsView", extra: bookModels);
+                          },
                           icon: Icon(
                             Icons.favorite_border,
                             size: 22,

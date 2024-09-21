@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:go_router/go_router.dart';
 
 Widget defaultTextField({
+  // required TextEditingController controller,
   required String labelText,
   required String hintText,
   required TextInputType type,
@@ -14,6 +14,7 @@ Widget defaultTextField({
   IconData? suffix,
 }) =>
     TextFormField(
+      // controller: controller,
       obscureText: isPassword,
       onChanged: onchange,
       validator: (value) {

@@ -1,6 +1,8 @@
 import 'package:bookly/login/views/login.dart';
 import 'package:bookly/login/widget/custom_default_button.dart';
+import 'package:bookly/login/widget/custom_snack_bar.dart';
 import 'package:bookly/login/widget/textandbutton.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -101,8 +103,27 @@ class _signUpState extends State<signUp> {
                 ),
                 CustomDefaultButton(
                   name: 'sign up',
-                  ontap: () {
-                    GoRouter.of(context).pop();
+                  ontap: () async {
+                    if (formKey.currentState!.validate()) {
+                      isloading = true;
+                      setState(() {});
+                      try {
+                        await signupuser();
+                        ShowBar(context, "Registration Successful");
+                      } on FirebaseAuthException catch (e) {
+                        if (e.code == 'badly formatted') {
+                          ShowBar(
+                              context, "The password provided is too weak.");
+                        } else if (e.code == 'email-already-in-use') {
+                          ShowBar(context,
+                              "The account already exists for that email.");
+                        }
+                      } catch (e) {
+                        ShowBar(context, "An error occurred");
+                      }
+                      isloading = false;
+                      setState(() {});
+                    }
                   },
                 ),
                 SizedBox(
@@ -134,6 +155,14 @@ class _signUpState extends State<signUp> {
           ),
         ),
       ),
+    );
+  }
+
+  Future<void> signupuser() async {
+    UserCredential user =
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: email!,
+      password: password!,
     );
   }
 }

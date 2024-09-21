@@ -1,9 +1,11 @@
 import 'package:bookly/login/widget/custom_default_button.dart';
+import 'package:bookly/login/widget/custom_icons.dart';
+import 'package:bookly/login/widget/custom_snack_bar.dart';
 import 'package:bookly/login/widget/textandbutton.dart';
 import 'package:bookly/styles.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
@@ -20,6 +22,9 @@ String? email;
 String? password;
 bool isloading = false;
 bool isPassword = true;
+
+TextEditingController emailConroller = TextEditingController();
+TextEditingController PasswordConroller = TextEditingController();
 
 class _loginState extends State<login> {
   Widget build(BuildContext context) {
@@ -75,16 +80,28 @@ class _loginState extends State<login> {
                 ),
                 CustomDefaultButton(
                   name: 'Sign In',
-                  ontap: () {
+                  ontap: () async {
                     if (formKey.currentState!.validate()) {
                       isloading = true;
                       setState(() {});
 
-                      // isloading = false;
-                      // setState(() {});
+                      try {
+                        await loginuser();
+
+                        GoRouter.of(context).push("/Navigation");
+                      } on FirebaseAuthException catch (e) {
+                        if (e.code == 'user-not-found') {
+                          ShowBar(context, "No user found for that email.");
+                        } else if (e.code == 'wrong-password') {
+                          ShowBar(context,
+                              "Wrong password provided for that user.");
+                        }
+                      } catch (e) {
+                        ShowBar(context, "An error occurred");
+                      }
+                      isloading = false;
+                      setState(() {});
                     }
-                    //Color.fromARGB(144, 61, 68, 80),
-                    GoRouter.of(context).push("/Navigation");
                   },
                 ),
                 SizedBox(
@@ -132,66 +149,12 @@ class _loginState extends State<login> {
       ),
     );
   }
-}
 
-class CustomIconList extends StatelessWidget {
-  const CustomIconList({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          height: 50,
-          width: 50,
-          color: Colors.white,
-          child: Icon(
-            FontAwesomeIcons.facebook,
-            color: Colors.blue,
-            size: 40,
-          ),
-        ),
-        SizedBox(
-          width: 15,
-        ),
-        Container(
-          height: 50,
-          width: 50,
-          color: Colors.white,
-          child: Icon(
-            FontAwesomeIcons.twitter,
-            color: Colors.blue,
-            size: 40,
-          ),
-        ),
-        SizedBox(
-          width: 15,
-        ),
-        Container(
-          height: 50,
-          width: 50,
-          color: Colors.white,
-          child: Icon(
-            FontAwesomeIcons.instagram,
-            color: Color.fromARGB(255, 215, 39, 119),
-            size: 40,
-          ),
-        ),
-        SizedBox(
-          width: 15,
-        ),
-        Container(
-          height: 50,
-          width: 50,
-          color: Colors.white,
-          child: Icon(
-            FontAwesomeIcons.google,
-            color: Color.fromARGB(255, 215, 39, 119),
-            size: 40,
-          ),
-        ),
-      ],
+  Future<void> loginuser() async {
+    UserCredential user =
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: email!,
+      password: password!,
     );
   }
 }

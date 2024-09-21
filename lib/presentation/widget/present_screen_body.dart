@@ -67,6 +67,9 @@ class _PresentScreenBodyState extends State<PresentScreenBody> {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 80,
+                    ),
                     Spacer(),
                     CustomPresentButton(),
                     Spacer()

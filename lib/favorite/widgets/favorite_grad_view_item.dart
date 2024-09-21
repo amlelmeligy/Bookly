@@ -1,3 +1,4 @@
+import 'package:bookly/home_section/Data/models/book_models/book_models.dart';
 import 'package:bookly/home_section/widgets/custom_book_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +6,12 @@ import 'package:bookly/styles.dart';
 import 'package:flutter/widgets.dart';
 
 class FavoriteGradViewItem extends StatelessWidget {
-  const FavoriteGradViewItem({super.key});
+  const FavoriteGradViewItem({
+    super.key,
+    // required this.book,
+  });
+
+  // final BookModels book;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +36,10 @@ class FavoriteGradViewItem extends StatelessWidget {
                       "assets/images/1 (8).jpg",
                       fit: BoxFit.fill,
                     ),
+
+                    // child: CustomBookImage(
+                    //   imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? '',
+                    // ),
                   ),
                 ),
               ),
@@ -39,7 +49,8 @@ class FavoriteGradViewItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Aml Elmeligi',
+                      'Book Title',
+                      // book.volumeInfo.title!,
                       maxLines: 2,
                       style: styles.textStyle20.copyWith(
                         fontWeight: FontWeight.bold,
@@ -56,7 +67,6 @@ class FavoriteGradViewItem extends StatelessWidget {
                       ),
                     ),
                     Row(
-                      // mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         IconButton(
                           onPressed: () {},
