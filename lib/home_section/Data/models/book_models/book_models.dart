@@ -13,6 +13,7 @@ class BookModels extends Equatable {
   final SaleInfo? saleInfo;
   final AccessInfo? accessInfo;
   final SearchInfo? searchInfo;
+  final bool? isFavorite ;
 
   const BookModels({
     this.kind,
@@ -23,6 +24,7 @@ class BookModels extends Equatable {
     this.saleInfo,
     this.accessInfo,
     this.searchInfo,
+    this.isFavorite,
   });
 
   factory BookModels.fromJson(Map<String, dynamic> json) => BookModels(
@@ -41,18 +43,10 @@ class BookModels extends Equatable {
         searchInfo: json['searchInfo'] == null
             ? null
             : SearchInfo.fromJson(json['searchInfo'] as Map<String, dynamic>),
+        isFavorite: json['isFavorite'] ?? false,
       );
 
-  Map<String, dynamic> toJson() => {
-        'kind': kind,
-        'id': id,
-        'etag': etag,
-        'selfLink': selfLink,
-        'volumeInfo': volumeInfo?.toJson(),
-        'saleInfo': saleInfo?.toJson(),
-        'accessInfo': accessInfo?.toJson(),
-        'searchInfo': searchInfo?.toJson(),
-      };
+  
 
   @override
   List<Object?> get props {
@@ -65,6 +59,7 @@ class BookModels extends Equatable {
       saleInfo,
       accessInfo,
       searchInfo,
+      isFavorite,
     ];
   }
 }

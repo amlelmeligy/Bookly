@@ -4,13 +4,13 @@ class BannarWidget extends StatelessWidget {
   final AppBanner appBanner;
 
   const BannarWidget({
-    Key? key,
+    super.key,
     required this.appBanner,
-  }) : super(key: key);
+  });
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 16),
+      margin: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         image: DecorationImage(
@@ -19,7 +19,7 @@ class BannarWidget extends StatelessWidget {
         ),
       ),
       child: DefaultTextStyle(
-        style: TextStyle(color: Colors.white, fontSize: 16),
+        style: const TextStyle(color: Colors.white, fontSize: 16),
         child: Stack(children: [
           Container(
             decoration: BoxDecoration(

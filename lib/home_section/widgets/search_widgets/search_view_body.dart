@@ -1,4 +1,4 @@
-import 'package:bookly/home_section/Data/models/book_models/book_models.dart';
+
 import 'package:bookly/styles.dart';
 import 'package:bookly/home_section/widgets/search_widgets/custom_search_text_field.dart';
 import 'package:bookly/home_section/widgets/search_widgets/search_result_listview.dart';
@@ -19,7 +19,7 @@ class SearchViewBody extends StatelessWidget {
           SliverToBoxAdapter(
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Align(
@@ -28,18 +28,18 @@ class SearchViewBody extends StatelessWidget {
                     onPressed: () {
                       GoRouter.of(context).pop();
                     },
-                    icon: Icon(Icons.arrow_back),
+                    icon: const Icon(Icons.arrow_back),
                   ),
                 ),
-                CustomSearchTextField(),
+                const CustomSearchTextField(),
                 const SizedBox(height: 25),
-                Padding(
-                  padding: const EdgeInsets.only(left: 8),
+                const Padding(
+                  padding: EdgeInsets.only(left: 8),
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Text(
                       "Search Result",
-                      style: styles.textStyle18,
+                      style: Styles.textStyle18,
                     ),
                   ),
                 ),
@@ -47,7 +47,7 @@ class SearchViewBody extends StatelessWidget {
               ],
             ),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Expanded(
               child: SearchResultListView(),
             ),

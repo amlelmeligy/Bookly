@@ -15,8 +15,8 @@ class SimilarBooksCubit extends Cubit<SimilarBooksState> {
       category: category,
     );
 
-    result.fold((Failure) {
-      emit(SimilarBooksFailure(Failure.errMessage));
+    result.fold((failure) {
+      emit(SimilarBooksFailure(failure.errMessage));
     }, (books) {
       emit(SimilarBooksSuccess(books));
     });

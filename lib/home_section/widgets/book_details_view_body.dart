@@ -20,18 +20,18 @@ class BookDetailsViewBody extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            CustomBookDetailsAppBar(),
+            const CustomBookDetailsAppBar(),
             BookDetailsSection(
               book: bookModels,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            BookAction(),
-            SizedBox(
+            const BookAction(),
+            const SizedBox(
               height: 20,
             ),
             Padding(
@@ -40,17 +40,17 @@ class BookDetailsViewBody extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "You can also like",
-                  style: styles.textStyle14.copyWith(
+                  style: Styles.textStyle14.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            SimilarBooksListView(),
-            SizedBox(
+            const SimilarBooksListView(),
+            const SizedBox(
               height: 30,
             )
           ],

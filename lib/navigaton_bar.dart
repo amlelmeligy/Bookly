@@ -14,25 +14,25 @@ class Navigation extends StatefulWidget {
 class _NavigationState extends State<Navigation> {
   int index = 0;
   final screens = [
-    HomeView(),
-    BookStoreView(),
-    FavoriteView(),
+    const HomeView(),
+    const BookStoreView(),
+    const FavoriteView(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: screens[index],
       bottomNavigationBar: Container(
-        color: Color(0xff100b20),
+        color: const Color(0xff100b20),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: GNav(
-              tabBackgroundColor: Color.fromARGB(144, 61, 68, 80),
-              padding: EdgeInsets.all(12),
+              tabBackgroundColor: const Color.fromARGB(144, 61, 68, 80),
+              padding: const EdgeInsets.all(12),
               gap: 8,
               selectedIndex: index,
               onTabChange: (index) => setState(() => this.index = index),
-              tabs: [
+              tabs: const [
                 GButton(icon: Icons.home, text: 'Home'),
                 GButton(icon: Icons.shopping_cart, text: 'Bookstore'),
                 GButton(icon: Icons.favorite, text: 'Favorite'),

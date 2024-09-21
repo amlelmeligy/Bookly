@@ -1,4 +1,3 @@
-import 'package:bookly/home_section/Data/models/book_models/book_models.dart';
 import 'package:bookly/home_section/widgets/search_widgets/search_view_body.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +6,7 @@ class SearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SearchViewBody(),
     );
   }

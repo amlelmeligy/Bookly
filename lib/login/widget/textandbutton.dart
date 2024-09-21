@@ -1,22 +1,35 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 
-Widget defaultTextField({
-  // required TextEditingController controller,
-  required String labelText,
-  required String hintText,
-  required TextInputType type,
-  String? Function(String?)? onchange,
-  bool obscureText = false,
-  bool isPassword = false,
-  suffixpressed, //العين
-  IconData? suffix,
-}) =>
-    TextFormField(
-      // controller: controller,
-      obscureText: isPassword,
-      onChanged: onchange,
+class DefaultTextField extends StatefulWidget {
+  final String labelText;
+  final String hintText;
+  final TextInputType type;
+  final TextEditingController? controller;
+  final bool? isPassword;
+  const DefaultTextField({
+    super.key,
+    required this.labelText,
+    required this.hintText,
+    required this.type,
+    this.isPassword,
+    
+    this.controller,
+  });
+
+
+  @override
+  State<DefaultTextField> createState() => _DefaultTextFieldState();
+}
+
+class _DefaultTextFieldState extends State<DefaultTextField> {
+  bool obscureText = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: widget.controller,
+      obscureText: widget.isPassword ?? false ? obscureText : false,
       validator: (value) {
         if (value!.isEmpty) {
           return 'Please enter some text';
@@ -24,22 +37,30 @@ Widget defaultTextField({
           return null;
         }
       },
-      keyboardType: type,
+      keyboardType: widget.type,
       decoration: InputDecoration(
         suffixIcon: IconButton(
           icon: Icon(
-            suffix,
+            widget.isPassword ?? false
+                ? obscureText
+                    ? Icons.visibility_off
+                    : Icons.visibility
+                : null,
             color: const Color.fromARGB(255, 116, 114, 114),
           ),
-          onPressed: suffixpressed, //العين
+          onPressed: () {
+            setState(() {
+              obscureText = !obscureText;
+            });
+          },
         ),
-        labelText: labelText,
-        labelStyle: TextStyle(
+        labelText: widget.labelText,
+        labelStyle: const TextStyle(
           fontSize: 14,
           color: Colors.white,
         ),
-        hintText: hintText,
-        hintStyle: TextStyle(
+        hintText: widget.hintText,
+        hintStyle: const TextStyle(
           fontSize: 14,
           color: Color.fromARGB(255, 255, 255, 255),
         ),
@@ -48,11 +69,13 @@ Widget defaultTextField({
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
-          borderSide: BorderSide(width: 1, color: Colors.white),
+          borderSide: const BorderSide(width: 1, color: Colors.white),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
-          borderSide: BorderSide(width: 2, color: Colors.white),
+          borderSide: const BorderSide(width: 2, color: Colors.white),
         ),
       ),
     );
+  }
+}

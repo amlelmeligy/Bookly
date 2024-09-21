@@ -1,6 +1,5 @@
 import 'package:bookly/errors/custom_error_widget.dart';
 import 'package:bookly/home_section/manager/newset_books_cubit/newset_books_cubit.dart';
-import 'package:bookly/home_section/widgets/book_list_view_Item.dart';
 import 'package:bookly/home_section/widgets/search_widgets/similar_list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,7 +16,7 @@ class SearchResultListView extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               padding: EdgeInsets.zero,
               itemCount: 10,

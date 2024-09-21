@@ -14,20 +14,20 @@ class CustomPresentButton extends StatefulWidget {
 class _CustomPresentButtonState extends State<CustomPresentButton> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 50,
       child: MaterialButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        color: Color.fromARGB(206, 61, 68, 80),
+        color: const Color.fromARGB(206, 61, 68, 80),
         onPressed: () {
           GoRouter.of(context).push("/login");
         },
         child: Text(
           "Continue",
-          style: styles.textStyle16.copyWith(fontWeight: FontWeight.bold),
+          style: Styles.textStyle16.copyWith(fontWeight: FontWeight.bold),
         ),
       ),
     );

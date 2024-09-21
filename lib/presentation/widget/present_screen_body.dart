@@ -13,7 +13,7 @@ class PresentScreenBody extends StatefulWidget {
 }
 
 int currentPage = 0;
-List<Map<String, String>> Data = [
+List<Map<String, String>> data = [
   {
     "text": "Welcome to Bookly , Let's shop!",
     "image": "assets/lottie/1.json",
@@ -46,10 +46,10 @@ class _PresentScreenBodyState extends State<PresentScreenBody> {
                       },
                     );
                   },
-                  itemCount: Data.length,
+                  itemCount: data.length,
                   itemBuilder: (context, index) => PresentScreenBodyContent(
-                    text: "${Data[index]["text"]}",
-                    image: "${Data[index]["image"]}",
+                    text: "${data[index]["text"]}",
+                    image: "${data[index]["image"]}",
                   ),
                 )),
             Expanded(
@@ -61,18 +61,18 @@ class _PresentScreenBodyState extends State<PresentScreenBody> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(
-                        Data.length,
-                        (index) => CustomIndicator(
+                        data.length,
+                        (index) => customIndicator(
                           index: index,
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 80,
                     ),
-                    Spacer(),
-                    CustomPresentButton(),
-                    Spacer()
+                    const Spacer(),
+                    const CustomPresentButton(),
+                    const Spacer()
                   ],
                 ),
               ),

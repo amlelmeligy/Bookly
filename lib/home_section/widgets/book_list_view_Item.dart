@@ -22,7 +22,7 @@ class BookListViewItem extends StatelessWidget {
             CustomBookImage(
               imageUrl: bookModels.volumeInfo.imageLinks?.thumbnail ?? '',
             ),
-            SizedBox(
+            const SizedBox(
               width: 30,
             ),
             Expanded(
@@ -35,26 +35,26 @@ class BookListViewItem extends StatelessWidget {
                       bookModels.volumeInfo.title!,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: styles.textStyle20.copyWith(
+                      style: Styles.textStyle20.copyWith(
                         fontFamily: 'GT Sectra',
                       ),
                     ),
                   ),
-                  SizedBox(height: 3),
+                  const SizedBox(height: 3),
                   Text(
                     bookModels.volumeInfo.authors![0],
-                    style: styles.textStyle14,
+                    style: Styles.textStyle14,
                   ),
-                  SizedBox(height: 3),
+                  const SizedBox(height: 3),
                   Row(
                     children: [
                       Text(
                         "Free",
-                        style: styles.textStyle20.copyWith(
+                        style: Styles.textStyle20.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       BookRating(
                         count: bookModels.volumeInfo.pageCount ?? 0,
                       )
@@ -83,24 +83,24 @@ class BookRating extends StatelessWidget {
     return Row(
       mainAxisAlignment: mainAxisAlignment,
       children: [
-        Icon(
+        const Icon(
           FontAwesomeIcons.solidStar,
           color: Colors.yellow,
           size: 16,
         ),
-        SizedBox(
+        const SizedBox(
           width: 6.3,
         ),
         Text(
           "4.8",
-          style: styles.textStyle16.copyWith(fontWeight: FontWeight.bold),
+          style: Styles.textStyle16.copyWith(fontWeight: FontWeight.bold),
         ),
-        SizedBox(
+        const SizedBox(
           width: 5,
         ),
         Text(
           "(${count.toString()})",
-          style: styles.textStyle14.copyWith(color: Colors.grey[400]),
+          style: Styles.textStyle14.copyWith(color: Colors.grey[400]),
         )
       ],
     );

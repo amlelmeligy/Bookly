@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+
 import 'package:bookly/styles.dart';
 
 class CustomDefaultButton extends StatelessWidget {
@@ -10,18 +10,18 @@ class CustomDefaultButton extends StatelessWidget {
   final String name;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 50,
       child: MaterialButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),
         ),
-        color: Color.fromARGB(206, 61, 68, 80),
+        color: const Color.fromARGB(206, 61, 68, 80),
         onPressed: ontap,
         child: Text(
           name,
-          style: styles.textStyle18,
+          style: Styles.textStyle18,
         ),
       ),
     );

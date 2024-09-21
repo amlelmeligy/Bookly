@@ -5,15 +5,14 @@ import 'package:bookly/login/widget/textandbutton.dart';
 import 'package:bookly/styles.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class login extends StatefulWidget {
-  const login({Key? key}) : super(key: key);
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  State<login> createState() => _loginState();
+  State<Login> createState() => _LoginState();
 }
 
 GlobalKey<FormState> formKey = GlobalKey(); //
@@ -24,58 +23,53 @@ bool isloading = false;
 bool isPassword = true;
 
 TextEditingController emailConroller = TextEditingController();
-TextEditingController PasswordConroller = TextEditingController();
+TextEditingController passwordConroller = TextEditingController();
 
-class _loginState extends State<login> {
+class _LoginState extends State<Login> {
+  @override
   Widget build(BuildContext context) {
     return ModalProgressHUD(
       inAsyncCall: isloading,
       child: Scaffold(
         body: Container(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Form(
             key: formKey,
             child: ListView(
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 50),
+                  padding: const EdgeInsets.symmetric(vertical: 50),
                   child: Text(
                     "Sign In",
-                    style: styles.textStyle30
+                    style: Styles.textStyle30
                         .copyWith(fontWeight: FontWeight.bold),
                   ),
                 ),
-                defaultTextField(
-                  onchange: (data) {
-                    email = data;
-                  },
+                DefaultTextField(
+                  controller: emailConroller,
                   labelText: "Email",
                   hintText: "Enter Your Email",
                   type: TextInputType.emailAddress,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 35,
                 ),
-                defaultTextField(
+                DefaultTextField(
                   isPassword: isPassword,
-                  onchange: (data) {
-                    password = data;
-                  },
-                  suffix: //العين
-                      isPassword ? Icons.visibility_off : Icons.visibility,
+                  controller: passwordConroller,
                   labelText: "Password",
                   hintText: "Enter Your Password",
                   type: TextInputType.name,
                 ),
                 TextButton(
-                  style: ButtonStyle(alignment: Alignment.centerRight),
+                  style: const ButtonStyle(alignment: Alignment.centerRight),
                   onPressed: () {},
-                  child: Text(
+                  child: const Text(
                     "Forget Password",
                     style: TextStyle(color: Colors.red),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 CustomDefaultButton(
@@ -91,34 +85,34 @@ class _loginState extends State<login> {
                         GoRouter.of(context).push("/Navigation");
                       } on FirebaseAuthException catch (e) {
                         if (e.code == 'user-not-found') {
-                          ShowBar(context, "No user found for that email.");
+                          displayBar(context, "No user found for that email.");
                         } else if (e.code == 'wrong-password') {
-                          ShowBar(context,
+                          displayBar(context,
                               "Wrong password provided for that user.");
                         }
                       } catch (e) {
-                        ShowBar(context, "An error occurred");
+                        displayBar(context, "An error occurred");
                       }
                       isloading = false;
                       setState(() {});
                     }
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 120,
                 ),
                 Text(
                   "Or Sign In With",
                   textAlign: TextAlign.center,
-                  style: styles.textStyle18.copyWith(
+                  style: Styles.textStyle18.copyWith(
                     fontWeight: FontWeight.normal,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
-                CustomIconList(),
-                SizedBox(
+                const CustomIconList(),
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
@@ -126,7 +120,7 @@ class _loginState extends State<login> {
                   children: [
                     Text(
                       "Don't have an account ?",
-                      style: styles.textStyle16.copyWith(
+                      style: Styles.textStyle16.copyWith(
                         fontWeight: FontWeight.normal,
                       ),
                     ),
@@ -136,7 +130,7 @@ class _loginState extends State<login> {
                       },
                       child: Text(
                         "Sign Up",
-                        style: styles.textStyle16.copyWith(
+                        style: Styles.textStyle16.copyWith(
                             fontWeight: FontWeight.normal, color: Colors.red),
                       ),
                     ),
@@ -153,8 +147,8 @@ class _loginState extends State<login> {
   Future<void> loginuser() async {
     UserCredential user =
         await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: email!,
-      password: password!,
+      email: emailConroller.text,
+      password: passwordConroller.text,
     );
   }
 }

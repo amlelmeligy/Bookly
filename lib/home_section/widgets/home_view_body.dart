@@ -1,5 +1,5 @@
 import 'package:bookly/styles.dart';
-import 'package:bookly/home_section/widgets/Custome_App_Bar.dart';
+import 'package:bookly/home_section/widgets/custome_App_Bar.dart';
 import 'package:bookly/home_section/widgets/best_seller_listview.dart';
 import 'package:bookly/home_section/widgets/featured_list_view.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,27 +11,27 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(physics: BouncingScrollPhysics(), slivers: [
+    return const CustomScrollView(physics: BouncingScrollPhysics(), slivers: [
       SliverToBoxAdapter(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: EdgeInsets.symmetric(horizontal: 30),
               child: CustomAppBar(),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
+              padding: EdgeInsets.symmetric(horizontal: 8),
               child: FeatureBooksListView(),
             ),
             SizedBox(
               height: 42,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: EdgeInsets.symmetric(horizontal: 30),
               child: Text(
                 'Newset Books',
-                style: styles.textStyle18,
+                style: Styles.textStyle18,
               ),
             ),
             SizedBox(
@@ -42,7 +42,7 @@ class HomeViewBody extends StatelessWidget {
       ),
       SliverFillRemaining(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: EdgeInsets.symmetric(horizontal: 30),
           child: BestSellerListView(),
         ),
       )

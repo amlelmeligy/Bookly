@@ -31,7 +31,7 @@ class BookDetailsSection extends StatelessWidget {
           book.volumeInfo.title!,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          style: styles.textStyle30,
+          style: Styles.textStyle30,
           textAlign: TextAlign.center,
         ),
         SizedBox(
@@ -39,7 +39,7 @@ class BookDetailsSection extends StatelessWidget {
         ),
         Text(
           book.volumeInfo.authors![0],
-          style: styles.textStyle18.copyWith(
+          style: Styles.textStyle18.copyWith(
             color: Colors.grey,
             fontStyle: FontStyle.italic,
           ),

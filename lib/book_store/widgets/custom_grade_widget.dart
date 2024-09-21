@@ -13,9 +13,9 @@ class CustomGradeView extends StatelessWidget {
       builder: (context, state) {
         if (state is NewsetBooksSuccess) {
           return GridView.builder(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3, // fixed cross axis count
                 mainAxisExtent: 320,
                 crossAxisSpacing: 10),
@@ -29,7 +29,7 @@ class CustomGradeView extends StatelessWidget {
         } else if (state is NewsetBooksFailure) {
           return CustomErrorWidget(errMessage: state.errMessage);
         } else {
-          return Center(
+          return const Center(
             // return statement was missing
             child: CircularProgressIndicator(),
           );

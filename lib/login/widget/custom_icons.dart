@@ -13,46 +13,46 @@ class CustomIconList extends StatelessWidget {
           height: 50,
           width: 50,
           color: Colors.white,
-          child: Icon(
+          child: const Icon(
             FontAwesomeIcons.facebook,
             color: Colors.blue,
             size: 40,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 15,
         ),
         Container(
           height: 50,
           width: 50,
           color: Colors.white,
-          child: Icon(
+          child: const Icon(
             FontAwesomeIcons.twitter,
             color: Colors.blue,
             size: 40,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 15,
         ),
         Container(
           height: 50,
           width: 50,
           color: Colors.white,
-          child: Icon(
+          child: const Icon(
             FontAwesomeIcons.instagram,
             color: Color.fromARGB(255, 215, 39, 119),
             size: 40,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 15,
         ),
         Container(
           height: 50,
           width: 50,
           color: Colors.white,
-          child: Icon(
+          child: const Icon(
             FontAwesomeIcons.google,
             color: Color.fromARGB(255, 215, 39, 119),
             size: 40,

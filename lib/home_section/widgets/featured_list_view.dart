@@ -1,5 +1,4 @@
 import 'package:bookly/errors/custom_error_widget.dart';
-import 'package:bookly/home_section/Data/models/book_models/book_models.dart';
 import 'package:bookly/home_section/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly/home_section/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +18,7 @@ class FeatureBooksListView extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.3,
             child: ListView.builder(
               itemCount: state.books.length,
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return Padding(
@@ -42,7 +41,7 @@ class FeatureBooksListView extends StatelessWidget {
         } else if (state is FeaturedBooksFailure) {
           return CustomErrorWidget(errMessage: state.errMessage);
         } else {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         }

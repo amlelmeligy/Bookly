@@ -5,7 +5,6 @@ import 'package:bookly/book_store/widgets/text_form_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:bookly/styles.dart';
 
 class BookStoreBody extends StatefulWidget {
   const BookStoreBody({super.key});
@@ -24,18 +23,18 @@ class _BookStoreBodyState extends State<BookStoreBody> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 8, right: 8, top: 8),
+            const Padding(
+              padding: EdgeInsets.only(left: 8, right: 8, top: 8),
               child: TextFormFieldWidget(),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 16),
+              margin: const EdgeInsets.symmetric(vertical: 16),
               height: 160,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -55,7 +54,7 @@ class _BookStoreBodyState extends State<BookStoreBody> {
                 },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Row(
@@ -69,7 +68,7 @@ class _BookStoreBodyState extends State<BookStoreBody> {
                 ),
               ],
             ),
-            CustomGradeView()
+            const CustomGradeView()
           ],
         ),
       ),

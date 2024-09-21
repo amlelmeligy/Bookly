@@ -9,14 +9,14 @@ class SimilarCustomBookImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(50),
-      child: Container(
+      child: SizedBox(
           width: 70,
           height: 90,
           child: CachedNetworkImage(
             fit: BoxFit.fill,
             imageUrl: imageUrl,
-            errorWidget: (context, url, error) => Icon(Icons.error),
-            placeholder: (context, url) => Center(
+            errorWidget: (context, url, error) => const Icon(Icons.error),
+            placeholder: (context, url) => const Center(
               child: CircularProgressIndicator(),
             ),
           )),

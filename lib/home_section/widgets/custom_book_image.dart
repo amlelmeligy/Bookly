@@ -14,8 +14,8 @@ class CustomBookImage extends StatelessWidget {
           child: CachedNetworkImage(
             fit: BoxFit.fill,
             imageUrl: imageUrl,
-            errorWidget: (context, url, error) => Icon(Icons.error),
-            placeholder: (context, url) => Center(
+            errorWidget: (context, url, error) => const Icon(Icons.error),
+            placeholder: (context, url) => const Center(
               child: CircularProgressIndicator(),
             ),
           )),

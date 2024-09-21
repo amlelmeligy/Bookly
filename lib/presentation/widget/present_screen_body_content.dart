@@ -15,23 +15,23 @@ class PresentScreenBodyContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Spacer(),
+        const Spacer(),
         Text(
           "Bookly",
-          style: styles.textStyle30.copyWith(
+          style: Styles.textStyle30.copyWith(
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Text(
           text,
-          style: styles.textStyle18.copyWith(
+          style: Styles.textStyle18.copyWith(
             color: Colors.grey,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Lottie.asset(image, height: 200, width: double.infinity)

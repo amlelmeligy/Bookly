@@ -20,7 +20,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       duration: const Duration(seconds: 2),
     );
     slidingAnimation = Tween<Offset>(
-      begin: Offset(0, 2),
+      begin: const Offset(0, 2),
       end: Offset.zero,
     ).animate(animationController);
     animationController.forward();
@@ -29,7 +29,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     });
 
     Future.delayed(
-      Duration(seconds: 2),
+      const Duration(seconds: 2),
       () {
         GoRouter.of(context).push('/OnePresentScreen');
       },
@@ -54,7 +54,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
             ),
             SlideTransition(
               position: slidingAnimation,
-              child: Text(
+              child: const Text(
                 "Read Free Books",
                 textAlign: TextAlign.center,
               ),

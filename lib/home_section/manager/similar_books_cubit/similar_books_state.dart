@@ -14,11 +14,11 @@ final class SimilarBooksLoading extends SimilarBooksState {}
 final class SimilarBooksSuccess extends SimilarBooksState {
   final List<BookModels> books;
 
-  SimilarBooksSuccess(this.books);
+  const SimilarBooksSuccess(this.books);
 }
 
 final class SimilarBooksFailure extends SimilarBooksState {
   final String errMessage;
 
-  SimilarBooksFailure(this.errMessage);
+  const SimilarBooksFailure(this.errMessage);
 }

@@ -1,10 +1,5 @@
 import 'package:bookly/favorite/widgets/favorite_view_body.dart';
-import 'package:bookly/home_section/Data/models/book_models/book_models.dart';
-import 'package:bookly/home_section/manager/similar_books_cubit/similar_books_cubit.dart';
-import 'package:bookly/home_section/views/book_details_view.dart';
-import 'package:bookly/home_section/views/book_details_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FavoriteView extends StatefulWidget {
   const FavoriteView({
@@ -28,7 +23,7 @@ class _FavoriteViewState extends State<FavoriteView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: FavoriteViewBody(
           // bookModels: widget.bookModels,
           ),

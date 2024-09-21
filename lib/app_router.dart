@@ -3,7 +3,7 @@ import 'package:bookly/home_section/Data/repos/home_repo_impl.dart';
 import 'package:bookly/home_section/Data/service_locator.dart';
 import 'package:bookly/home_section/manager/similar_books_cubit/similar_books_cubit.dart';
 import 'package:bookly/login/views/login.dart';
-import 'package:bookly/login/views/signUp.dart';
+import 'package:bookly/login/views/sign_up.dart';
 import 'package:bookly/navigaton_bar.dart';
 import 'package:bookly/home_section/views/SplashView.dart';
 import 'package:bookly/home_section/views/book_details_view.dart';
@@ -18,27 +18,27 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: '/login',
-        builder: (context, state) => login(),
+        builder: (context, state) => const Login(),
       ),
       GoRoute(
         path: '/signUp',
-        builder: (context, state) => signUp(),
+        builder: (context, state) => const SignUp(),
       ),
       GoRoute(
         path: '/',
-        builder: (context, state) => SplashView(),
+        builder: (context, state) => const SplashView(),
       ),
       GoRoute(
         path: '/OnePresentScreen',
-        builder: (context, state) => OnePresentScreen(),
+        builder: (context, state) => const OnePresentScreen(),
       ),
       GoRoute(
         path: '/Navigation',
-        builder: (context, state) => Navigation(),
+        builder: (context, state) => const Navigation(),
       ),
       GoRoute(
         path: '/HomeView',
-        builder: (context, state) => HomeView(),
+        builder: (context, state) => const HomeView(),
       ),
       GoRoute(
         path: "/BookDetailsView",
@@ -51,7 +51,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: '/SearchView',
-        builder: (context, state) => SearchView(),
+        builder: (context, state) => const SearchView(),
       )
     ],
   );
