@@ -23,7 +23,7 @@ class _CustomPresentButtonState extends State<CustomPresentButton> {
         ),
         color: Color.fromARGB(206, 61, 68, 80),
         onPressed: () {
-          GoRouter.of(context).push("/Navigation");
+          GoRouter.of(context).push("/login");
         },
         child: Text(
           "Continue",

@@ -1,3 +1,4 @@
+import 'package:bookly/favorite/widgets/favorite_view_body.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteView extends StatelessWidget {
@@ -5,6 +6,8 @@ class FavoriteView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: FavoriteViewBody(),
+    );
   }
 }

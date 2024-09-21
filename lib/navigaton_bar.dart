@@ -1,6 +1,6 @@
 import 'package:bookly/book_store/views/book_store_view.dart';
 import 'package:bookly/home_section/views/home_view.dart';
-import 'package:bookly/favorite/favorite_view.dart';
+import 'package:bookly/favorite/view/favorite_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -35,7 +35,7 @@ class _NavigationState extends State<Navigation> {
               tabs: [
                 GButton(icon: Icons.home, text: 'Home'),
                 GButton(icon: Icons.shopping_cart, text: 'Bookstore'),
-                GButton(icon: Icons.favorite_border, text: 'Favorite'),
+                GButton(icon: Icons.favorite, text: 'Favorite'),
               ]),
         ),
       ),

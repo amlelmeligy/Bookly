@@ -2,6 +2,8 @@ import 'package:bookly/home_section/Data/models/book_models/book_models.dart';
 import 'package:bookly/home_section/Data/repos/home_repo_impl.dart';
 import 'package:bookly/home_section/Data/service_locator.dart';
 import 'package:bookly/home_section/manager/similar_books_cubit/similar_books_cubit.dart';
+import 'package:bookly/login/views/login.dart';
+import 'package:bookly/login/views/signUp.dart';
 import 'package:bookly/navigaton_bar.dart';
 import 'package:bookly/home_section/views/SplashView.dart';
 import 'package:bookly/home_section/views/book_details_view.dart';
@@ -14,6 +16,14 @@ import 'presentation/view/one_present_screen.dart';
 abstract class AppRouter {
   static final GoRouter router = GoRouter(
     routes: [
+      GoRoute(
+        path: '/login',
+        builder: (context, state) => login(),
+      ),
+      GoRoute(
+        path: '/signUp',
+        builder: (context, state) => signUp(),
+      ),
       GoRoute(
         path: '/',
         builder: (context, state) => SplashView(),
