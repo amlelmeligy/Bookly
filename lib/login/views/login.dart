@@ -17,8 +17,8 @@ class Login extends StatefulWidget {
 
 GlobalKey<FormState> formKey = GlobalKey(); //
 
-String? email;
-String? password;
+// String? email;
+// String? password;
 bool isloading = false;
 bool isPassword = true;
 

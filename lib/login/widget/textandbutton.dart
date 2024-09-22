@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class DefaultTextField extends StatefulWidget {
   final String labelText;
@@ -13,10 +14,8 @@ class DefaultTextField extends StatefulWidget {
     required this.hintText,
     required this.type,
     this.isPassword,
-    
     this.controller,
   });
-
 
   @override
   State<DefaultTextField> createState() => _DefaultTextFieldState();

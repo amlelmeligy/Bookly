@@ -6,10 +6,7 @@ import 'package:bookly/styles.dart';
 class FavoriteViewBody extends StatelessWidget {
   const FavoriteViewBody({
     super.key,
-    // required this.bookModels,
   });
-
-  // final BookModels bookModels;
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +28,7 @@ class FavoriteViewBody extends StatelessWidget {
               style: Styles.textStyle18,
             ),
           ),
-          FavoriteGradView(
-              // book: bookModels,
-              ),
+          FavoriteGradView(),
         ],
       ),
     );

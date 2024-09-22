@@ -2,7 +2,7 @@ import 'package:bookly/home_section/Data/models/book_models/book_models.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly/styles.dart';
 
-class FavoriteGradViewItem extends StatelessWidget {
+class FavoriteGradViewItem extends StatefulWidget {
   const FavoriteGradViewItem({
     super.key,
     required this.book,
@@ -11,11 +11,16 @@ class FavoriteGradViewItem extends StatelessWidget {
   final BookModels book;
 
   @override
+  State<FavoriteGradViewItem> createState() => _FavoriteGradViewItemState();
+}
+
+class _FavoriteGradViewItemState extends State<FavoriteGradViewItem> {
+  @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {},
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
@@ -26,17 +31,13 @@ class FavoriteGradViewItem extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: SizedBox(
-                  height: 240,
+                  height: 220,
                   child: AspectRatio(
-                    aspectRatio: 2.9 / 4,
-                    child: Image.asset(
-                      "assets/images/1 (8).jpg",
+                    aspectRatio: 2.7 / 3,
+                    child: Image.network(
+                      widget.book.volumeInfo.imageLinks!.thumbnail,
                       fit: BoxFit.fill,
                     ),
-
-                    // child: CustomBookImage(
-                    //   imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? '',
-                    // ),
                   ),
                 ),
               ),
@@ -46,13 +47,12 @@ class FavoriteGradViewItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Book Title',
-                      // book.volumeInfo.title!,
+                      widget.book.volumeInfo.title!,
                       maxLines: 2,
                       style: Styles.textStyle20.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
-                      textAlign: TextAlign.center,
+                      // textAlign: TextAlign.center,
                     ),
                     const SizedBox(
                       height: 5,
@@ -66,7 +66,9 @@ class FavoriteGradViewItem extends StatelessWidget {
                     Row(
                       children: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {});
+                          },
                           icon: const Icon(
                             Icons.favorite,
                             color: Colors.red,
